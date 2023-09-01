@@ -554,25 +554,25 @@ BEGIN
 END
 GO
 
-IF OBJECT_ID(N'[Function].[InsertCarriers]', N'P') IS NOT NULL
+IF OBJECT_ID(N'[Functions].[InsertCarriers]', N'P') IS NOT NULL
 BEGIN
-    DROP PROCEDURE [Function].[InsertCarriers]
+    DROP PROCEDURE [Functions].[InsertCarriers]
 END
 GO 
 
 IF EXISTS (SELECT * FROM sys.types WHERE is_table_type = 1 AND name = 'CarrierType')
 BEGIN
-    DROP TYPE [Function].[CarrierType]
+    DROP TYPE [Functions].[CarrierType]
 END
 
-CREATE TYPE [Function].[CarrierType] AS TABLE (
+CREATE TYPE [Functions].[CarrierType] AS TABLE (
 	Code [NVARCHAR](255),
 	Description [NVARCHAR](255)
 );
 
 GO
 
-CREATE PROCEDURE [Function].[InsertCarriers]
+CREATE PROCEDURE [Functions].[InsertCarriers]
   @Entities [CarrierType] ReadOnly
 AS
 BEGIN
